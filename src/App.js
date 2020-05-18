@@ -10,7 +10,7 @@ function App() {
     <Fragment>
       <CssBaseLine />
       <NavBar />
-      <Container style={{backgroundColor: "gray", height: "100vh"}}>
+      <Container>
         <Content />
       </Container>
     </Fragment>
