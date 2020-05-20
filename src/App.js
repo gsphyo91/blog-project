@@ -1,19 +1,32 @@
-import React, { Fragment } from "react";
+import React from "react";
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import CssBaseLine from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
+
 
 import NavBar from "./Components/NavBar";
-import Content from './Components/Content';
+import PostList from "./pages/postLists/PostList";
+
 
 function App() {
   return (
-    <Fragment>
+    // <Fragment>
+    //   <CssBaseLine />
+    //   <NavBar />
+    //   <Container>
+    //     <Content />
+    //   </Container>
+    // </Fragment>
+    <BrowserRouter>
       <CssBaseLine />
       <NavBar />
-      <Container>
-        <Content />
-      </Container>
-    </Fragment>
+      <Switch>
+        <Route path="/" exact>
+          <PostList />
+        </Route>
+        <Route path="/newPost" exact></Route>
+        <Route path="/:id" exact></Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

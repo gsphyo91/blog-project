@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Box, Typography } from "@material-ui/core";
-import PostList from "./PostList";
+import PostList from "../pages/postLists/PostList";
 
 const useStyles = makeStyles((theme) => ({
   wrapContent: {
