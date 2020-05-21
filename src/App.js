@@ -5,6 +5,7 @@ import CssBaseLine from "@material-ui/core/CssBaseline";
 
 import NavBar from "./Components/NavBar";
 import PostList from "./pages/postLists/PostList";
+import Footer from "./Components/Footer";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/newPost" exact></Route>
         <Route path="/:id" exact></Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
