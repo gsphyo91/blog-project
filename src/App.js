@@ -1,12 +1,11 @@
 import React from "react";
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import CssBaseLine from "@material-ui/core/CssBaseline";
-
 
 import NavBar from "./Components/NavBar";
 import PostList from "./pages/postLists/PostList";
 import Footer from "./Components/Footer";
-
+import NewPost from "./pages/newPost/NewPost";
 
 function App() {
   return (
@@ -24,7 +23,9 @@ function App() {
         <Route path="/" exact>
           <PostList />
         </Route>
-        <Route path="/newPost" exact></Route>
+        <Route path="/newPost" exact>
+          <NewPost />
+        </Route>
         <Route path="/:id" exact></Route>
       </Switch>
       <Footer />

@@ -1,9 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Link from "@material-ui/core/Link";
-import { Box, IconButton } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
-import MenuIcon from "@material-ui/icons/Menu";
+import { Link, Box, IconButton } from "@material-ui/core";
+import { Menu, Create } from "@material-ui/icons";
+import { useLocation } from "react-router-dom";
 
 const useStyles = makeStyles({
   wrapHeader: {
@@ -15,11 +14,20 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     padding: "0 30px",
   },
+  wrapHeaderNewPost: {
+    margin: 0,
+    height: 70,
+    minHeight: 50,
+    display: "flex",
+    alignContent: "center",
+    justifyContent: "center",
+    padding: "0 30px",
+  },
   menuBtn: {
     "&:hover": {
       backgroundColor: "transparent",
-      color: 'black'
-    }
+      color: "black",
+    },
   },
   logo: {
     display: "flex",
@@ -28,27 +36,43 @@ const useStyles = makeStyles({
     fontWeight: 800,
     fontSize: 30,
   },
-  searchBtn: {
+  wrapCreateBtn: {
+    display: 'flex',
+    alignContent: 'center'
+  },
+  createBtn: {
     "&:hover": {
       backgroundColor: "transparent",
-      color: 'black'
+      color: "black",
     },
-  }
+  },
 });
 
 const NavBar = () => {
   const classes = useStyles();
+  const { pathname } = useLocation();
+  console.log(pathname);
   return (
-    <Box className={classes.wrapHeader}>
-      <IconButton className={classes.menuBtn} disableRipple>
-        <MenuIcon fontSize="large" />
-      </IconButton>
+    <Box
+      className={
+        pathname === "/" ? classes.wrapHeader : classes.wrapHeaderNewPost
+      }
+    >
+      {pathname === "/" && (
+        <IconButton className={classes.menuBtn} disableRipple>
+          <Menu fontSize="large" />
+        </IconButton>
+      )}
       <Link href="/" className={classes.logo} underline="none">
         Blog
       </Link>
-      <IconButton size="medium" className={classes.searchBtn} disableRipple>
-        <SearchIcon fontSize="medium" />
-      </IconButton>
+      {pathname === "/" && (
+        <Link href="/newPost" className={classes.wrapCreateBtn}>
+          <IconButton className={classes.createBtn} disableRipple>
+            <Create />
+          </IconButton>
+        </Link>
+      )}
     </Box>
   );
 };

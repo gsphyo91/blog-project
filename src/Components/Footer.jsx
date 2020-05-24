@@ -27,8 +27,8 @@ const Footer = () => {
   return (
     <Box className={classes.wrapFooter}>
       <Typography className={classes.footer}>
-        Gyungsoo{" / "}
-        <Link className={classes.write}>글쓰기</Link>
+        Gyungsoo{' '}/
+        <Link to="/newPost" className={classes.write}>글쓰기</Link>
       </Typography>
     </Box>
   );
